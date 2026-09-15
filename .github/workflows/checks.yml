@@ -1,0 +1,40 @@
+name: checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    name: secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  manifest:
+    name: manifest & skill sanity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JSON is valid
+        run: |
+          jq empty .claude-plugin/plugin.json
+          jq empty .claude-plugin/marketplace.json
+      - name: SKILL.md has frontmatter with name and description
+        run: |
+          for f in skills/*/SKILL.md; do
+            head -1 "$f" | grep -qx -- '---' || { echo "$f: first line must be ---"; exit 1; }
+            grep -q '^name:' "$f" || { echo "$f: missing name"; exit 1; }
+            grep -q '^description:' "$f" || { echo "$f: missing description"; exit 1; }
+          done
+      - name: no local paths or private notes leaked
+        run: |
+          ! grep -rnE '/Users/|~/Documents|~/\.claude/projects|\.config/google|obsidian' skills/ README.md

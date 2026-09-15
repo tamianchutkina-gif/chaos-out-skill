@@ -1,0 +1,15 @@
+{
+  "name": "chaos-out-skill",
+  "owner": { "name": "Tamilya Anchutkina", "url": "https://github.com/tamianchutkina-gif" },
+  "description": "Chaos → order: a question-driven problem-solving protocol for Claude Code that unpacks the user's own knowledge instead of imposing a framework.",
+  "plugins": [
+    {
+      "name": "chaos-out",
+      "source": "./",
+      "description": "Chaos → order: a question-driven problem-solving protocol for Claude Code that unpacks the user's own knowledge instead of imposing a framework.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": ["claude-code","skill","problem-solving","intake","facilitation","coaching"]
+    }
+  ]
+}
