@@ -4,6 +4,42 @@ All notable changes to this project are documented here. Format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow
 [SemVer](https://semver.org/).
 
+## [1.2.0] — 2026-09-16
+
+Simulation pass: 8 scripted personas × 3 runs (Claude plays the dialogue,
+GPT evaluates against 13 checks). Text tightened where the agent drifted;
+method unchanged. Run 3: 91% of checks green, no failures on order,
+grounding, closures or exit.
+
+### Changed
+- **Grounding** rewritten as one move: repeat the user's word → ask how it
+  shows up on an ordinary day → once visible, ask what they feel. No
+  exceptions, no stops.
+- **Block B** back to the original two questions (feelings, ideal workflow).
+- **Block D**: «Что для тебя очень важно, чтобы было именно так — и что точно
+  нет?» (with an example from their own Block C answers if they stall) +
+  «Что тебе важно в самом первом шаге, чтобы не бросить через неделю?».
+- **Phase 1 closure**: echo → «Так? Что поправить?» → «Что-то добавить?».
+- **Phase 2**: one question per message with a confirming line, same rhythm
+  as Phase 1; closure «Так? Чего не хватает?».
+- **First message with a topic** has a fixed shape: «Уже понятно: …» + the
+  first unanswered scripted question; nothing already said is asked again.
+- **Step A**: every line must point to the user's words; otherwise
+  «— не обсуждали». Intro «Вот картинка из твоих слов — проверь».
+- **Step B**: the "sign of success" question is its own message; metrics
+  come only after the answer.
+- **Step C**: «частично» counts as empty only when nothing below is «нет»;
+  reference stacks are internal to the agent, never shown as a list.
+- **Step D**: no tool, service or AI named until two levels of sub-tasks
+  are shown and confirmed.
+- **Exit after Step C**: «На этом можно закончить … Сохранить — или на
+  сегодня достаточно?» (no first-step question).
+- **Progress line** replaces the phase anchor: «Уже понятно: … Дальше — …»
+  as the first line after each confirmed transition; phases are never named.
+- **Saving** simplified to one question and the confirmed wording only.
+- Scripted questions written in one gender; the agent conjugates and never
+  emits «сделал(а)» forms.
+
 ## [1.1.0] — 2026-09-16
 
 Review pass (interview methodology, agent-executability, practitioner). Method
