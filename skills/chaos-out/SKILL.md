@@ -6,7 +6,7 @@ license: MIT
 
 # /chaos-out — Universal problem-solving skill
 
-"Chaos → order": from the user's tangle of feelings, thoughts and half-decisions the skill pulls out what actually matters and brings it into the open — as a confirmed model, metrics and a foundation stack. It does this by asking and reflecting, not by proposing. The output is clarity, not a plan.
+"Chaos → order": from the user's tangle of feelings, thoughts and half-decisions the skill pulls out what actually matters and brings it into the open — as a confirmed model, metrics and a foundation stack. It does this by asking and reflecting, not by proposing. The skill exists so that the person understands themselves — whether they need this and whether they want it — not to hand them a right or wrong answer. The output is clarity, not a plan.
 
 ## When to invoke
 
@@ -31,13 +31,13 @@ license: MIT
 4. **Max fullness, min investment.** The fullest picture for the least effort from the user.
 5. **From general to specific.** Start at the top layer, then drop down. No details before the upper structure is clear.
 6. **Tools come last.** Instruments are applied only at the very end, after you understand *what* is needed and *which paths* exist. Never propose a tool when the need is still unclear.
-7. **Ask before you draft.** At every fork of Phase 3 ask the user first: *«Куда ты хочешь это класть / в каком виде / через что?»* Do NOT propose a pre-built structure. The skill unpacks the user's own knowledge, not external frameworks. Users usually know where their stuff lives — asking is what reveals it.
+7. **Ask before you draft.** In Steps A–C the draft is built only from the user's confirmed words (that is not proposing). At every other fork of Phase 3 — where to put it, in what form, through what — ask the user first: *«Куда ты хочешь это класть / в каком виде / через что?»* Do NOT propose a pre-built structure. The skill unpacks the user's own knowledge, not external frameworks. Users usually know where their stuff lives — asking is what reveals it.
 8. **Assembly first, decomposition last.** Start by ASSEMBLING the desired result from minimally necessary large blocks (Step A). Only inside Step D DECOMPOSE a chosen block into sub-tasks → deeper sub-tasks → and only then wrap in tools/skills/agents. Never decompose at the assembly stage; never assemble at the decomposition stage.
 9. **Pacing: conversation, not a form.**
    - One block per message, max 3 questions in it. In Phase 1 prefer one question per message.
    - Before the next question — one line reflecting the previous answer in the user's own words (not a summary, not an evaluation).
    - Max two follow-ups to one answer.
-   - With `<topic>`, the first message has a fixed shape: one line *«Уже понятно: [what the topic already said, in their words]»*, then the first scripted question the topic did NOT answer. Questions the topic already answered are never asked again — their answers are carried into the echo.
+   - With `<topic>`, the first message has a fixed shape: one line *«Уже понятно: [what the topic already said, in their words]»*, then the first scripted question the topic did NOT answer. Questions the topic answered in full are never asked again — their answers are carried into the echo. A partial answer (one process named where the question asks for three) gets only the missing part: *«Какие ещё два?»*
    - After a bare confirmation («да», «так», «оставляем») no reflection is needed — go straight on.
    - If the user hurries («давай к делу», «короче») — say ONE line: *«Дам структуру после двух коротких блоков, иначе она будет моя, а не твоя»* — and continue one question at a time. Adjust tempo by shortening reflections, never by skipping blocks.
 10. **Their words.** The meaning and everyday register of every scripted question is fixed; the subject is substituted from the user's own phrasing («в этой истории» → «в [его формулировка]»). Do not add new topics — if a new one is needed, ask the user to name it. Address form (ты/вы) and grammatical gender follow the user's first message. Scripted questions in this file are written in one gender — conjugate them to the user's; never write both forms («сделал(а)») in a reply.
@@ -55,7 +55,7 @@ Example: «Хочу больше свободы» → *как ты поймёш�
 
 Not this: «зачем тебе это?», «что изменится в твоей жизни?» — head-level, no picture. Everyday speech, not coaching-book phrases.
 
-The reflex lives inside the current block: it does not change block order and does not replace the block's question.
+The reflex lives inside the current block: it does not change block order and does not replace the block's question. But it is not optional: after a wish or an irritation, do not move to the next scripted question until the answer is visible and the feeling is asked.
 
 ### Progress line
 
@@ -138,7 +138,7 @@ The output is NOT a one-shot dump. It is assembled iteratively, with user confir
 
 ### Step A — Model confirmation
 
-Claude draws the model from the user's own material — no tools, ≤7 blocks, in this frame. Every line must point to something the user said — their words, not a plausible extension («дальше — автомат», «инструменты, которые остаются» are inventions). A line with nothing said behind it says «— не обсуждали».
+Claude draws the model from the user's own material — no tools, ≤7 blocks, in this frame. Every line must point to something the user said — their words, not a plausible extension («дальше — автомат», «инструменты, которые остаются» are inventions). A line with nothing said behind it says «— не обсуждали». Before sending, check each line: can you quote where the user said it? If not — «— не обсуждали».
 
 ```
 **Модель — черновик N**
@@ -154,7 +154,7 @@ Introduce it in one line: *«Вот картинка из твоих слов �
 
 ### Step B — Key metrics
 
-First, as its own message: *«Что для тебя будет знаком, что это сработало?»* Wait for the answer, confirm it in their words.
+First, as its own message: *«Что для тебя будет знаком, что это сработало?»* If the sign already sounded earlier («первые 20 оплат») — reflect it and ask *«Верно, это и будет знаком?»* instead. Wait for the answer, confirm it in their words.
 
 Only then, in the next message, propose **2–3 metrics** that make that sign countable — one main success metric, one failure signal that sends us back to earlier phases, optionally one speed metric. Here proposing is required (an explicit exception to principle 7). Rules:
 - Each metric must be countable with what the user already has (Phase 2). If it can't be counted today — do not drop it: mark «нечем мерить» as a gap for Step C.
@@ -182,9 +182,10 @@ Build the **vertical stack** from foundation up to the user's request out of the
 
 Then:
 1. **Decompose each layer into one-time and ongoing actions.** (Example: marketing strategy = one-time; content generation + stats + strategy sync = ongoing.)
-2. For each layer ask: *«Это у тебя есть / нет / частично?»*
-3. **Mark the gaps as «винтики».** Do NOT unpack them here. Just name the gap.
-4. **The lowest empty layer = first priority.** Upper floors can't stand on empty ground. Empty = «нет». «Частично» counts as empty only when there is no «нет» below it.
+2. For each layer ask: *«Это у тебя есть / нет / частично?»* — one layer per message; the status comes from the user's answer, never from the agent's guess.
+3. Show the filled stack and ask: *«Так? Что исправить?»* Only after confirmation:
+4. **Mark the gaps as «винтики».** Do NOT unpack them here. Just name the gap.
+5. **The lowest empty layer = first priority.** Upper floors can't stand on empty ground. Empty = «нет». «Частично» counts as empty only when there is no «нет» below it.
 
 Reference stacks — internal to the agent, never shown as a list. Build from the user's material first, then compare to find a layer they may have skipped, and ask about it in their words: *«А [слой] — это у тебя есть, или его нет?»*
 - content / personal brand: market research → positioning → funnel → content strategy → content system → distribution → analytics

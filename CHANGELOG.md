@@ -4,6 +4,21 @@ All notable changes to this project are documented here. Format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow
 [SemVer](https://semver.org/).
 
+## [1.2.1] — 2026-09-16
+
+Independent review pass (GPT). Six wording fixes, no method change:
+- Intro states the purpose in the author's words: the person understands
+  themselves — whether they need this and want it — not a right/wrong answer.
+- Principle 7 no longer conflicts with Steps A–C (a draft from confirmed
+  words is not proposing).
+- Grounding is mandatory before the next scripted question.
+- Step A: source check per line before sending.
+- Step C: one layer per message, statuses from the user, stack confirmed
+  («Так? Что исправить?») before gaps are named.
+- Partially answered topic questions get only the missing part.
+- Step B: a sign of success that already sounded is reflected and confirmed
+  before metrics.
+
 ## [1.2.0] — 2026-09-16
 
 Simulation pass: 8 scripted personas × 3 runs (Claude plays the dialogue,

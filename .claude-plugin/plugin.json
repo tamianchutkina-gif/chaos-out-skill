@@ -1,7 +1,7 @@
 {
   "name": "chaos-out",
   "description": "Chaos → order: a question-driven problem-solving protocol for Claude Code that unpacks the user's own knowledge instead of imposing a framework.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": { "name": "Tamilya Anchutkina", "url": "https://github.com/tamianchutkina-gif" },
   "homepage": "https://github.com/tamianchutkina-gif/chaos-out-skill",
   "repository": "https://github.com/tamianchutkina-gif/chaos-out-skill",
